@@ -63,9 +63,10 @@ public class SomeFixedBox implements SweetBoxable {
         if (totalWeight < weight) {
             System.out.println("Коробка не нуждается в оптимизации!");
         } else {
-            Arrays.sort(sweets, new SweetComparatorByWeight()); //descending sort
+            Arrays.sort(sweets, new SweetComparatorByWeight());
+            int i = 0;
             while (totalWeight >= weight) {
-                this.remove();
+                this.remove(i++);
             }
         }
     }
@@ -75,9 +76,10 @@ public class SomeFixedBox implements SweetBoxable {
         if (totalWeight < weight) {
             System.out.println("Коробка не нуждается в оптимизации!");
         } else {
-            Arrays.sort(sweets, new SweetComparatorByPrice()); //descending sort
+            Arrays.sort(sweets, new SweetComparatorByPrice());
+            int i = 0;
             while (totalWeight >= weight) {
-                this.remove();
+                this.remove(i++);
             }
         }
     }

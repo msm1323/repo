@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class MyBox implements SweetBoxable {
 
@@ -50,7 +51,7 @@ public class MyBox implements SweetBoxable {
         if (totalWeight < weight) {
             System.out.println("Коробка не нуждается в оптимизации!");
         } else {
-            sweets.sort(new SweetComparatorByWeight()); //descending sort
+            sweets.sort(Collections.reverseOrder(new SweetComparatorByPrice()));
             while (totalWeight >= weight) {
                 this.remove();
             }
@@ -62,7 +63,7 @@ public class MyBox implements SweetBoxable {
         if (totalWeight < weight) {
             System.out.println("Коробка не нуждается в оптимизации!");
         } else {
-            sweets.sort(new SweetComparatorByPrice()); //descending sort
+            sweets.sort(Collections.reverseOrder(new SweetComparatorByPrice()));
             while (totalWeight >= weight) {
                 this.remove();
             }

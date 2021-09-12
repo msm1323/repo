@@ -32,14 +32,14 @@ public abstract class Sweet {
 class SweetComparatorByWeight implements Comparator<Sweet> {
     @Override
     public int compare(Sweet o1, Sweet o2) {
-        return -1 * Double.compare(o1.weight, o2.weight);
+        return Double.compare(o1.weight, o2.weight);
     }
 }
 
 class SweetComparatorByPrice implements Comparator<Sweet> {
     @Override
     public int compare(Sweet o1, Sweet o2) {
-        return -1 * Double.compare(o1.price, o2.price);
+        return Double.compare(o1.price, o2.price);
     }
 }
 

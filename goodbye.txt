@@ -1,2 +1,0 @@
-sout("goodbye");
-sout("bye, London!");

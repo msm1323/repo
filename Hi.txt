@@ -1,6 +1,0 @@
-
-System.out.println("Hello world");
-System.out.println("cheer up, London");
-System.out.println("yo");
-System.out.println("yooooooooy");
-System.out.println("a");

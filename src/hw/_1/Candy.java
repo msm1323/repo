@@ -1,3 +1,5 @@
+package hw._1;
+
 public class Candy extends Sweet{
 
     Type type;
@@ -10,7 +12,7 @@ public class Candy extends Sweet{
     @Override
     void info() {
         super.info();
-        System.out.printf("Type: %s\n", this.type);
+        System.out.printf("hw._1.Type: %s\n", this.type);
     }
 
 }

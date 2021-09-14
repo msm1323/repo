@@ -1,3 +1,5 @@
+package hw._1;
+
 public class Chocolate extends Sweet {
 
     Form form;
@@ -10,7 +12,7 @@ public class Chocolate extends Sweet {
     @Override
     void info() {
         super.info();
-        System.out.printf("Form: %s\n", this.form);
+        System.out.printf("hw._1.Form: %s\n", this.form);
     }
 }
 

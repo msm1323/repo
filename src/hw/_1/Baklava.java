@@ -1,3 +1,5 @@
+package hw._1;
+
 public class Baklava extends Sweet {
     Filling filling;
 
@@ -9,7 +11,7 @@ public class Baklava extends Sweet {
     @Override
     void info() {
         super.info();
-        System.out.printf("Filling: %s\n", this.filling);
+        System.out.printf("hw._1.Filling: %s\n", this.filling);
     }
 }
 

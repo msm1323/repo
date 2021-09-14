@@ -1,3 +1,5 @@
+package hw._1;
+
 public interface SweetBoxable {
 
     void add(Sweet sweet) throws OverflowBoxException;

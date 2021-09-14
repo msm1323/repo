@@ -1,3 +1,5 @@
+package hw._1;
+
 import java.util.Comparator;
 
 public abstract class Sweet {

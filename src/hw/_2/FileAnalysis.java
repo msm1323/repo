@@ -19,7 +19,7 @@ public class FileAnalysis {
         theMostFrequentWord();
     }
 
-    private void theMostFrequentWord() throws ClassCastException{
+    private void theMostFrequentWord() throws ClassCastException {
         SortedSet<Integer> set = new TreeSet<>(wordsMap.values());
         Double m = Double.valueOf(set.last());
         double n = words.size();
@@ -68,6 +68,7 @@ public class FileAnalysis {
         separators.add('-');
         separators.add('(');
         separators.add(')');
+        separators.add('"');
 
         FileReader reader = new FileReader(file);
         int c;
@@ -97,7 +98,7 @@ public class FileAnalysis {
     }
 
     private void print() {
-        System.out.println("\nСлова из файла в алфавитном порядке:");
+        System.out.println("Слова из файла в алфавитном порядке:");
         for (String w : words) {
             System.out.println("\t" + w);
         }

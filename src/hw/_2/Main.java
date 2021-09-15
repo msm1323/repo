@@ -5,13 +5,13 @@ import java.io.IOException;
 
 public class Main {
 
-    public static void main(String[] args){             //  src/hw/_2/resources/DeadlockLivelockSpinlock.txt
+    public static void main(String[] args) {
         FileAnalysis fileAnalysis = new FileAnalysis();
         try {
             fileAnalysis.analyse(args[0]);
-        } catch (FileNotFoundException ex){
+        } catch (FileNotFoundException ex) {
             System.out.println(ex.getMessage() + "\nПроверьте корректность входных данных.");
-        } catch (IOException ioEx){
+        } catch (IOException ioEx) {
             System.out.println(ioEx.getMessage());
         }
     }

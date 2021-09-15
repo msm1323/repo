@@ -11,8 +11,8 @@ public class Main {
             fileAnalysis.analyse(args[0]);
         } catch (FileNotFoundException ex) {
             System.out.println(ex.getMessage() + "\nПроверьте корректность входных данных.");
-        } catch (IOException ioEx) {
-            System.out.println(ioEx.getMessage());
+        } catch (IOException | FileAnalysis.EmptyFileException ex) {
+            System.out.println(ex.getMessage());
         }
     }
 

@@ -10,26 +10,31 @@ public class FileAnalysis {
 
     private List<String> words = new ArrayList<>();
     private Map<String, Integer> wordsMap = new HashMap<>();
+    private Double m;   //число повторений самых(-ого) часто попадающихся(-щегося) слов(а)
+    private double n;   //кол-во слов в файле
 
-    void analyse(String file) throws IOException {
+    void analyse(String file) throws IOException, EmptyFileException {
         readFile(file);
+        if (words.isEmpty()) {
+            throw new EmptyFileException("Файл пуст! Провести анализ невозможно.");
+        }
+        n = words.size();
         words.sort(new WordComparator());
         print();
         getStatistics();
         theMostFrequentWord();
     }
 
-    private void theMostFrequentWord() throws ClassCastException {
+    private void theMostFrequentWord() throws ClassCastException, NoSuchElementException {
         SortedSet<Integer> set = new TreeSet<>(wordsMap.values());
-        Double m = Double.valueOf(set.last());
-        double n = words.size();
+        m = Double.valueOf(set.last());
         System.out.println("\nСлова, встречающиеся максимальное число раз:");
         for (Map.Entry<String, Integer> el : wordsMap.entrySet()) {
             if (el.getValue().equals(set.last())) {
                 System.out.println("\t" + el.getKey());
             }
         }
-        System.out.println("\nЧастота: " + m / n);
+        System.out.println("Частота: " + m / n);
     }
 
     private void getStatistics() {
@@ -46,8 +51,9 @@ public class FileAnalysis {
                 }
             }
         }
+        System.out.printf("\n\t%-30s %-30s %-30s\n\n", "Слово", "Кол-во", "Частота");
         for (Map.Entry<String, Integer> el : wordsMap.entrySet()) {
-            System.out.println("\t" + el.getKey() + "\t" + el.getValue());
+            System.out.printf("\t%-30s %-30d %-30e\n", el.getKey(), el.getValue(), Double.valueOf(el.getValue())/n);
         }
     }
 
@@ -69,6 +75,10 @@ public class FileAnalysis {
         separators.add('(');
         separators.add(')');
         separators.add('"');
+        separators.add('}');
+        separators.add('{');
+        separators.add(']');
+        separators.add('[');
 
         FileReader reader = new FileReader(file);
         int c;
@@ -97,4 +107,11 @@ public class FileAnalysis {
             System.out.println("\t" + w);
         }
     }
+
+    class EmptyFileException extends Exception {
+        public EmptyFileException(String message) {
+            super(message);
+        }
+    }
+
 }

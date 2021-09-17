@@ -17,9 +17,7 @@ public class Main {             //  src/hw/_3/resources/companies.json
         Scanner in = new Scanner(System.in);
         while (true) {
             String request = in.nextLine();
-
             try {                           //#3
-                LocalDate data;
                 if (request.matches("\\d\\d\\.\\d\\d\\.\\d\\d\\d\\d")) {
                     forming.foundedAfter(LocalDate.parse(request, DateTimeFormatter.ofPattern("dd.MM.yyyy")));
                 } else if (request.matches("\\d\\d\\.\\d\\d,\\d\\d")) {

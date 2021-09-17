@@ -16,18 +16,15 @@ public class Forming {
     private List<Company> companies = new LinkedList<>();
 
     public void form(String p) throws IOException {
-        String s = Files.readString(Path.of(p).toAbsolutePath());
-        JSONObject jsonObject = new JSONObject(s);
+        JSONObject jsonObject = new JSONObject(Files.readString(Path.of(p).toAbsolutePath()));
         JSONArray jsonArray = jsonObject.getJSONArray("companies");
 
         for (int i = 0; i < jsonArray.length(); i++) {
             companies.add(new Company(jsonArray.getJSONObject(i).get("id"), jsonArray.getJSONObject(i).get("name"),
                     jsonArray.getJSONObject(i).get("address"), jsonArray.getJSONObject(i).get("phoneNumber"),
-                    jsonArray.getJSONObject(i).get("inn"), jsonArray.getJSONObject(i).get("founded")));
-            JSONArray jsArrSec = (JSONArray) jsonArray.getJSONObject(i).get("securities");
-            companies.get(i).fillSecurity(jsArrSec);
+                    jsonArray.getJSONObject(i).get("inn"), jsonArray.getJSONObject(i).get("founded")
+                    , (JSONArray) jsonArray.getJSONObject(i).get("securities")));
         }
-
     }
 
     public void shortNameFounded() {        //#1
@@ -44,6 +41,7 @@ public class Forming {
             securities.forEach(Company.Security::print);
             counter += securities.size();
         }
+        System.out.println("\nКоличество просроченных ценных бумаг: " + counter);
     }
 
     public void foundedAfter(LocalDate date) {       //#3

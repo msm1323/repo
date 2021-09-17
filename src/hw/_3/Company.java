@@ -17,21 +17,19 @@ public class Company {
     private LocalDate founded;
     private List<Security> securities = new LinkedList<>();
 
-    public void fillSecurity(JSONArray jArrSecurities) {
-        for (int i = 0; i < jArrSecurities.length(); i++) {
-            JSONObject jsObj = (JSONObject) jArrSecurities.get(i);
-            JSONArray jsArrCurr = jsObj.getJSONArray("currency");
-            securities.add(new Security(jsObj.get("name"), jsArrCurr, jsObj.get("code"), jsObj.get("date")));
-        }
-    }
-
-    public Company(Object id, Object name, Object address, Object phoneNumber, Object inn, Object founded) {
+    public Company(Object id, Object name, Object address, Object phoneNumber, Object inn, Object founded
+            , JSONArray jArrSecurities) {
         this.id = (Integer) id;
         this.name = (String) name;
         this.address = (String) address;
         this.phoneNumber = (String) phoneNumber;
         this.inn = (String) inn;
         this.founded = LocalDate.parse((CharSequence) founded, DateTimeFormatter.ofPattern("dd.MM.yyyy"));
+        for (int i = 0; i < jArrSecurities.length(); i++) {
+            JSONObject jsObj = (JSONObject) jArrSecurities.get(i);
+            JSONArray jsArrCurr = jsObj.getJSONArray("currency");
+            securities.add(new Security(jsObj.get("name"), jsArrCurr, jsObj.get("code"), jsObj.get("date")));
+        }
     }
 
     public int getId() {

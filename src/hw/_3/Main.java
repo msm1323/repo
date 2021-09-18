@@ -21,11 +21,11 @@ public class Main {             //  src/hw/_3/resources/companies.json
                 if (request.matches("\\d\\d\\.\\d\\d\\.\\d\\d\\d\\d")) {
                     forming.foundedAfter(LocalDate.parse(request, DateTimeFormatter.ofPattern("dd.MM.yyyy")));
                 } else if (request.matches("\\d\\d\\.\\d\\d,\\d\\d")) {
-                    forming.foundedAfter(LocalDate.parse(request, DateTimeFormatter.ofPattern("dd.MM,yy")).minusYears(1000));
+                    forming.foundedAfter(LocalDate.parse(request, DateTimeFormatter.ofPattern("dd.MM,yy")).minusYears(100));
                 } else if (request.matches("\\d\\d/\\d\\d/\\d\\d\\d\\d")) {
                     forming.foundedAfter(LocalDate.parse(request, DateTimeFormatter.ofPattern("dd/MM/yyyy")));
                 } else if (request.matches("\\d\\d/\\d\\d/\\d\\d")) {
-                    forming.foundedAfter(LocalDate.parse(request, DateTimeFormatter.ofPattern("dd/MM/yy")).minusYears(1000));
+                    forming.foundedAfter(LocalDate.parse(request, DateTimeFormatter.ofPattern("dd/MM/yy")).minusYears(100));
                 } else if (request.matches("EU|USD|RUB")) {         //#4
                     forming.securitiesCodesOfCompanies(request);
                 } else {

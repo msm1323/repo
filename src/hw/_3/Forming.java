@@ -45,7 +45,6 @@ public class Forming {
     }
 
     public void foundedAfter(LocalDate date) {       //#3
-        System.out.println("date = " + date);
         companies.stream().filter(company -> company.getFounded().isAfter(date)).forEach(Company::printNameFounded);
     }
 
